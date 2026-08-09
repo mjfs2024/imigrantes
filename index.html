@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do Haiti ao Paraná: Família Pallotti</title>
+  
+  <!-- Tipografia Moderna e Jovem: Outfit (Títulos) e Plus Jakarta Sans (Corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       VARIÁVEIS DE CORES E DESIGN SYSTEM MODERNO
+       ========================================================================== */
+    :root {
+      --bg-dark: #080c14;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(99, 102, 241, 0.5);
+      
+      --accent-indigo: #6366f1;
+      --accent-cyan: #06b6d4;
+      --accent-pink: #ec4899;
+      --accent-amber: #f59e0b;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      
+      --grad-primary: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --grad-haiti: linear-gradient(135deg, #ef4444 0%, #8b5cf6 50%, #3b82f6 100%);
+      
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+      
+      --glow-soft: 0 0 35px rgba(99, 102, 241, 0.15);
+      --glow-strong: 0 10px 40px rgba(99, 102, 241, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.7;
+      color: var(--text-main);
+      background-color: var(--bg-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+      /* Fundo em malha gradiente moderna */
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(236, 72, 153, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 50% 75%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* BARRA NEON SUPERIOR */
+    .top-glow-bar {
+      height: 4px;
+      width: 100%;
+      background: var(--grad-primary);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+    }
+
+    /* ==========================================================================
+       HERO / CABEÇALHO FUTURISTA
+       ========================================================================== */
+    header {
+      padding: 4.5rem 1.5rem 3.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .flag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      letter-spacing: 0.5px;
+    }
+
+    header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      drop-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       CONTAINER & CARDS GLASSMORPHISM
+       ========================================================================== */
+    .container {
+      max-width: 1100px;
+      margin: 20px auto 60px;
+      padding: 0 20px;
+    }
+
+    section {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      margin-bottom: 30px;
+      padding: 38px 42px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--card-border);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    }
+
+    section:hover {
+      border-color: var(--card-border-hover);
+      box-shadow: var(--glow-soft);
+      transform: translateY(-3px);
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent-indigo);
+      box-shadow: 0 0 12px var(--accent-indigo);
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    p strong {
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       LINHA DO TEMPO INTERATIVA
+       ========================================================================== */
+    .timeline {
+      list-style: none;
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline li {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 20px 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .timeline li:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(99, 102, 241, 0.3);
+      transform: translateX(6px);
+    }
+
+    .timeline strong {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 4px 14px;
+      background-color: rgba(99, 102, 241, 0.1);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      white-space: nowrap;
+    }
+
+    .timeline span {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      padding-top: 2px;
+    }
+
+    /* ==========================================================================
+       MURAL DOS ALUNOS (CARDS ESTILO TECH/INSTA)
+       ========================================================================== */
+    .mural {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      text-align: center;
+      border: 1px solid var(--card-border);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(6, 182, 212, 0.25);
+    }
+
+    .foto-frame {
+      width: 100%;
+      height: 270px;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 16px;
+    }
+
+    .foto-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .foto-frame img {
+      transform: scale(1.08);
+    }
+
+    .foto-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: var(--text-muted);
+      padding: 20px;
+    }
+
+    .foto-placeholder svg {
+      width: 48px;
+      height: 48px;
+      fill: var(--accent-cyan);
+      opacity: 0.6;
+      margin-bottom: 10px;
+    }
+
+    .card-info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.3;
+      min-height: 2.6em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card .turma {
+      display: inline-block;
+      background: rgba(6, 182, 212, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 4px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .card .tagline {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       RODAPÉ CLEAN E MODERNO
+       ========================================================================== */
+    footer {
+      background: rgba(15, 23, 42, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 80px;
+      position: relative;
+    }
+
+    .school-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .school-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-indigo);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    }
+
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    footer p.school-title {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-main);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    footer p.welcome {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      margin-top: 12px;
+      font-size: 1.05rem;
+    }
+
+    /* RESPONSIVIDADE MOBILE */
+    @media (max-width: 640px) {
+      header {
+        padding: 3rem 1rem 2rem;
+      }
+      section {
+        padding: 26px 20px;
+        border-radius: var(--radius-lg);
+      }
+      .timeline li {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .school-brand {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Barra Neon Superior -->
+  <div class="top-glow-bar"></div>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="flag-badge">🇭🇹 Haiti &nbsp;•&nbsp; 🇧🇷 Brasil</div>
+    <h1>Do Caribe ao Paraná</h1>
+    <p>A jornada de esperança, cultura e aprendizado da família Pallotti</p>
+  </header>
+
+  <div class="container">
+    
+    <!-- Seção: A História -->
+    <section>
+      <div class="section-header">
+        <h2>A História: Um recomeço em busca de esperança</h2>
+      </div>
+      <p>
+        O Haiti foi a primeira república independente da América Latina e do Caribe, nascida em 1804 de uma vitoriosa revolta de pessoas escravizadas. Após o devastador terremoto de 2010 em Porto Príncipe, iniciou-se uma das maiores e mais inspiradoras jornadas migratórias contemporâneas para o Brasil, unindo laços de amizade e solidariedade entre as nações.
+      </p>
+    </section>
+
+    <!-- Seção: Linha do Tempo -->
+    <section>
+      <div class="section-header">
+        <h2>Linha do Tempo: A Travessia</h2>
+      </div>
+      <ul class="timeline">
+        <li>
+          <strong>2004</strong>
+          <span>O Brasil passa a comandar a MINUSTAH (Missão das Nações Unidas para a Estabilização no Haiti).</span>
+        </li>
+        <li>
+          <strong>2012</strong>
+          <span>O Governo Brasileiro concede a acolhida e autorização de residência humanitária aos cidadãos haitianos.</span>
+        </li>
+        <li>
+          <strong>2015</strong>
+          <span>Fortalecimento da migração para o Sul do Brasil, com muitas famílias encontrando no Paraná novas oportunidades de trabalho e estudos.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Seção: A Escola -->
+    <section>
+      <div class="section-header">
+        <h2>Nossa Escola, Nossa Comunidade</h2>
+      </div>
+      <p>
+        O <strong>CECM São Vicente Pallotti</strong> em Mandaguari valoriza a diversidade cultural como uma verdadeira riqueza pedagógica e humana. Nossos alunos haitianos participam ativamente da comunidade escolar, compartilhando saberes, vivências e construindo seus sonhos por meio da educação.
+      </p>
+    </section>
+
+    <!-- Seção: Mural dos Alunos -->
+    <section>
+      <div class="section-header">
+        <h2>Mural dos Alunos</h2>
+      </div>
+
+      <div class="mural">
+        <!-- Aluno 1 -->
+        <div class="card">
+          <div class="foto-frame">
+            <img src="MANOTTE SEPHORA MAURIVAL.jpeg" alt="Manotte Sephora Maurival" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="foto-placeholder" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              <span>Manotte Sephora</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Manotte Sephora Maurival</h3>
+            <span class="turma">3º ano A</span>
+            <p class="tagline">Orgulho da Família Pallotti</p>
+          </div>
+        </div>
+
+        <!-- Aluno 2 -->
+        <div class="card">
+          <div class="foto-frame">
+            <img src="DJENIE FLORE OTILUS.jpeg" alt="Djenie Flore Otilus" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="foto-placeholder" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              <span>Djenie Flore</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Djenie Flore Otilus</h3>
+            <span class="turma">3º ano A</span>
+            <p class="tagline">Orgulho da Família Pallotti</p>
+          </div>
+        </div>
+
+        <!-- Aluno 3 -->
+        <div class="card">
+          <div class="foto-frame">
+            <img src="MISHDANA SHANENDIE SAINT AUBERT.jpeg" alt="Mishdana Shanendie Saint Aubert" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="foto-placeholder" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              <span>Mishdana Shanendie</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Mishdana Shanendie Saint Aubert</h3>
+            <span class="turma">3º ano A</span>
+            <p class="tagline">Orgulho da Família Pallotti</p>
+          </div>
+        </div>
+
+        <!-- Aluno 4 -->
+        <div class="card">
+          <div class="foto-frame">
+            <img src="SAMSORY DORLEANS.jpeg" alt="Samsory Dorleans" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="foto-placeholder" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              <span>Samsory Dorleans</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Samsory Dorleans</h3>
+            <span class="turma">3º ano A</span>
+            <p class="tagline">Orgulho da Família Pallotti</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="school-brand">
+      <img src="images.jpeg" alt="Logo Colégio Cívico-Militar do Paraná" class="school-logo">
+      <p class="school-title">CECM São Vicente Pallotti</p>
+    </div>
+    <p>Rua Rufino Maciel, 742 · Centro · Mandaguari · PR</p>
+    <p class="welcome">Bem-vindos à família Pallotti. / Menm fanmi Pallotti.</p>
+  </footer>
+
+</body>
+
+</html>
